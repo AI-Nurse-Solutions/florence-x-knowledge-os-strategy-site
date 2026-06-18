@@ -1,0 +1,20 @@
+# Florence-X Knowledge OS Strategy Site
+
+A public strategy site for the NAIO / Florence-X interpretation of AI-native websites as governed healthcare AI knowledge assets.
+
+## Strategic thesis
+
+Florence-X turns major NAIO artifacts into living, EDENA-governed, agent-readable knowledge assets — creating a healthcare AI Knowledge Operating System where agents propose, humans judge, and nurses steward.
+
+## Contents
+
+- Strategic thesis
+- EDENA governance classification
+- Florence-X knowledge asset lifecycle
+- Five-site MVP
+- 30-day build plan
+- Decision log
+
+## Public safety note
+
+This site contains no PHI, patient data, secrets, credentials, or internal identifiers. It is intended for education, strategy, and decision support. It does not replace clinical judgment, legal advice, regulatory review, or accountable human governance.

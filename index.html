@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Florence-X Knowledge OS Strategy Site</title>
+  <meta name="description" content="A NAIO / Florence-X strategy site for turning static healthcare AI artifacts into EDENA-governed, agent-readable knowledge assets." />
+  <meta property="og:title" content="Florence-X Knowledge OS Strategy Site" />
+  <meta property="og:description" content="Every artifact becomes alive. Every living artifact remains governed." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --bg: #08111f;
+      --panel: rgba(255,255,255,0.075);
+      --panel-strong: rgba(255,255,255,0.12);
+      --text: #eef6ff;
+      --muted: #b8c7d9;
+      --line: rgba(255,255,255,0.16);
+      --green: #65d6a3;
+      --yellow: #f5d76e;
+      --orange: #ffae66;
+      --red: #ff7b86;
+      --blue: #89c9ff;
+      --violet: #c6a6ff;
+      --shadow: 0 24px 80px rgba(0,0,0,0.45);
+      --radius: 24px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(137,201,255,0.25), transparent 34rem),
+        radial-gradient(circle at 90% 10%, rgba(198,166,255,0.18), transparent 32rem),
+        radial-gradient(circle at 70% 80%, rgba(101,214,163,0.12), transparent 30rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { width: min(1160px, calc(100% - 36px)); margin: 0 auto; }
+    header { padding: 28px 0 12px; position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px); background: rgba(8,17,31,0.78); border-bottom: 1px solid var(--line); }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: 0.02em; }
+    .mark { width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(135deg, var(--blue), var(--green)); box-shadow: 0 0 36px rgba(137,201,255,0.32); }
+    .links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 0.92rem; color: var(--muted); }
+    .hero { padding: 76px 0 42px; }
+    .kicker { color: var(--green); text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.78rem; font-weight: 800; }
+    h1 { font-size: clamp(2.6rem, 5.6vw, 5.8rem); line-height: 1.02; margin: 18px 0 24px; letter-spacing: -0.052em; max-width: 1000px; }
+    .lead { max-width: 820px; font-size: clamp(1.15rem, 2vw, 1.45rem); color: var(--muted); }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 24px; align-items: stretch; margin-top: 42px; }
+    .card, .pillar, .site-card, .timeline-item, .risk-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .card { padding: 28px; }
+    .quote { font-size: clamp(1.35rem, 2.4vw, 2rem); line-height: 1.25; font-weight: 760; letter-spacing: -0.03em; }
+    .muted { color: var(--muted); }
+    .badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+    .badge { border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; background: rgba(255,255,255,0.06); font-size: 0.9rem; color: var(--muted); }
+    section { padding: 52px 0; }
+    h2 { font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.02; letter-spacing: -0.055em; margin: 0 0 16px; }
+    h3 { font-size: 1.25rem; margin: 0 0 8px; letter-spacing: -0.02em; }
+    .section-lead { color: var(--muted); max-width: 780px; font-size: 1.08rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 26px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 26px; }
+    .pillar, .site-card, .risk-card { padding: 22px; }
+    .mini { font-size: 0.88rem; color: var(--muted); }
+    .flow { display: grid; grid-template-columns: repeat(7, auto); align-items: center; gap: 10px; margin: 30px 0; overflow-x: auto; padding-bottom: 6px; }
+    .flow span { white-space: nowrap; padding: 12px 16px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,0.08); font-weight: 700; }
+    .flow b { color: var(--muted); }
+    table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: 18px; margin-top: 24px; background: rgba(255,255,255,0.055); border: 1px solid var(--line); }
+    th, td { padding: 15px 14px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; }
+    th { color: #fff; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; background: rgba(255,255,255,0.08); }
+    tr:last-child td { border-bottom: 0; }
+    .tier { font-weight: 800; }
+    .green { color: var(--green); } .yellow { color: var(--yellow); } .orange { color: var(--orange); } .red { color: var(--red); }
+    .site-card { position: relative; overflow: hidden; }
+    .site-card:before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: var(--blue); }
+    .site-card.orange:before { background: var(--orange); } .site-card.yellow:before { background: var(--yellow); } .site-card.green:before { background: var(--green); } .site-card.red:before { background: var(--red); }
+    .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 26px; }
+    .timeline-item { padding: 20px; }
+    .num { width: 34px; height: 34px; border-radius: 12px; display: grid; place-items: center; background: rgba(137,201,255,0.16); color: var(--blue); font-weight: 900; margin-bottom: 14px; }
+    .cta { margin: 44px 0 10px; padding: 30px; border-radius: 30px; background: linear-gradient(135deg, rgba(137,201,255,0.18), rgba(101,214,163,0.14)); border: 1px solid var(--line); display: flex; justify-content: space-between; gap: 22px; align-items: center; }
+    .button { display: inline-flex; padding: 13px 18px; border-radius: 999px; color: #06101e; background: linear-gradient(135deg, var(--blue), var(--green)); font-weight: 900; box-shadow: 0 16px 34px rgba(137,201,255,0.20); }
+    footer { padding: 40px 0 64px; color: var(--muted); border-top: 1px solid var(--line); margin-top: 36px; }
+    code { background: rgba(255,255,255,0.09); padding: 2px 7px; border-radius: 8px; color: #fff; }
+    @media (max-width: 850px) {
+      header { position: static; }
+      .hero-grid, .grid-3, .grid-2, .timeline { grid-template-columns: 1fr; }
+      .links { display: none; }
+      .cta { flex-direction: column; align-items: flex-start; }
+      table { font-size: 0.9rem; }
+      th, td { padding: 11px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap">
+      <div class="brand"><div class="mark" aria-hidden="true"></div><span>Florence-X Knowledge OS</span></div>
+      <div class="links">
+        <a href="#thesis">Thesis</a>
+        <a href="#governance">EDENA</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#roadmap">30-Day Plan</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="top">
+      <div class="kicker">NAIO Strategy Site · Healthcare AI Knowledge Work</div>
+      <h1>Every artifact becomes alive. Every living artifact remains governed.</h1>
+      <p class="lead">Florence-X transforms static healthcare AI documents into living, searchable, agent-readable knowledge assets governed by EDENA — so strategy, evidence, dashboards, learning, and operations can move from scattered files into one accountable operating system.</p>
+      <div class="hero-grid">
+        <div class="card">
+          <div class="quote">The shift is not from PDFs to websites. The shift is from a <span class="green">Document Operating System</span> to a <span class="blue">Healthcare AI Knowledge Operating System</span>.</div>
+          <div class="badge-row">
+            <span class="badge">Agents propose</span>
+            <span class="badge">Humans judge</span>
+            <span class="badge">Nurses steward</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>North Star</h3>
+          <p class="muted">If you built an ICU today with intelligence available on demand, what would the unit — and its knowledge infrastructure — look like?</p>
+          <p><strong>Immediate artifact:</strong><br />A public strategy site for the Florence-X Knowledge Operating System.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="thesis">
+      <h2>Strategic Thesis</h2>
+      <p class="section-lead">AI-native websites lower the cost of turning every important organizational artifact into a living operational system. In healthcare, that power must be governed before it becomes trusted.</p>
+      <div class="grid-3">
+        <div class="pillar"><h3>1. Knowledge becomes operational</h3><p class="mini">Reports, decks, and spreadsheets become searchable, linked, continuously updated sites.</p></div>
+        <div class="pillar"><h3>2. Sites become decision-shaping</h3><p class="mini">Once a site guides strategy, staffing, education, procurement, or governance, it is no longer “just content.”</p></div>
+        <div class="pillar"><h3>3. Governance becomes native</h3><p class="mini">EDENA classifies every site by risk, owner, review cadence, sensitivity, and agent access.</p></div>
+      </div>
+    </section>
+
+    <section class="wrap" id="governance">
+      <h2>EDENA Governance Classification</h2>
+      <p class="section-lead">Every Florence-X knowledge site receives a governance tier before publication. Tier up when a site influences clinical, financial, legal, regulatory, workforce, credentialing, or operational decisions.</p>
+      <table aria-label="EDENA tier matrix">
+        <thead><tr><th>Tier</th><th>Meaning</th><th>Default Control</th><th>Examples</th></tr></thead>
+        <tbody>
+          <tr><td class="tier green">Green</td><td>Low-risk informational or educational asset.</td><td>Owner review quarterly.</td><td>Case pages, explainers, newsletters, public summaries.</td></tr>
+          <tr><td class="tier yellow">Yellow</td><td>Decision-support or organizational influence.</td><td>Named accountable owner; monthly review.</td><td>Strategy portals, research hubs, education pathways.</td></tr>
+          <tr><td class="tier orange">Orange</td><td>Operational intelligence, dashboards, monitoring, or agent-readable workspaces.</td><td>Governance review; weekly monitoring; audit log.</td><td>Mission control, readiness dashboards, intelligence hubs, innovation pipelines.</td></tr>
+          <tr><td class="tier red">Red</td><td>Clinical, financial, legal, regulatory, PHI-containing, or autonomous decision authority.</td><td>Blocked until sandboxed, reviewed, and explicitly approved.</td><td>Clinical decision support, compliance authority, credentialing systems, financial commitments.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="wrap" id="architecture">
+      <h2>Florence-X Knowledge Asset Lifecycle</h2>
+      <p class="section-lead">The operating model is a governed lifecycle, not a folder structure. Every artifact moves through classification, publication, monitoring, and review.</p>
+      <div class="flow" aria-label="Lifecycle flow">
+        <span>Create</span><b>→</b><span>Classify</span><b>→</b><span>Govern</span><b>→</b><span>Publish</span><b>→</b><span>Monitor</span><b>→</b><span>Update</span><b>→</b><span>Archive / Escalate</span>
+      </div>
+      <div class="grid-2">
+        <div class="risk-card">
+          <h3>Required metadata</h3>
+          <p class="mini"><code>title</code> · <code>owner</code> · <code>purpose</code> · <code>audience</code> · <code>edena_tier</code> · <code>data_sensitivity</code> · <code>clinical_relevance</code> · <code>decision_influence</code> · <code>review_cadence</code> · <code>agent_access</code> · <code>human_accountable_owner</code></p>
+        </div>
+        <div class="risk-card">
+          <h3>Agent boundary</h3>
+          <p class="mini">Agents may read, search, summarize, and cross-reference approved assets. They may not execute clinical decisions, change governance policy, override humans, or trigger high-consequence workflows without escalation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="sites">
+      <h2>Five-Site MVP</h2>
+      <p class="section-lead">The solo-founder path is not to build ten platforms. Start with one minimum viable knowledge operating system: five linked, public-safe strategy sites.</p>
+      <div class="grid-3">
+        <div class="site-card yellow"><h3>1. EDENA Governance Portal</h3><p class="mini">Canonical source of truth for risk tiers, standards, guardrails, and agent access rules.</p><strong class="yellow">Yellow</strong></div>
+        <div class="site-card orange"><h3>2. Florence-X Mission Control</h3><p class="mini">Operating dashboard for projects, agents, strategic goals, risks, decisions, and next actions.</p><strong class="orange">Orange</strong></div>
+        <div class="site-card yellow"><h3>3. Healthcare AGI Research Hub</h3><p class="mini">Living evidence base for nursing AI governance, clinical AI, AGI forecasts, and regulation.</p><strong class="yellow">Yellow–Orange</strong></div>
+        <div class="site-card orange"><h3>4. ICU Singularity Operations Hub</h3><p class="mini">Destination 2030 proof of concept for workforce readiness, pilots, metrics, and unit redesign.</p><strong class="orange">Orange</strong></div>
+        <div class="site-card yellow"><h3>5. SmartLearn / Healthcare AGI Academy</h3><p class="mini">Learning tracks, assessments, certification roadmap, and competency development.</p><strong class="yellow">Yellow–Orange</strong></div>
+        <div class="site-card green"><h3>Later: Public Showcase Layer</h3><p class="mini">Case studies, brand system, talent portal, press room, and partnership microsites.</p><strong class="green">Green–Yellow</strong></div>
+      </div>
+    </section>
+
+    <section class="wrap" id="roadmap">
+      <h2>Immediate 30-Day Build Plan</h2>
+      <p class="section-lead">Sequence governance before dashboards. Publish the rule system first, then the operating interface, then the evidence base.</p>
+      <div class="timeline">
+        <div class="timeline-item"><div class="num">1</div><h3>Week 1</h3><p class="mini">Draft EDENA Website Governance Standard v0.1 and the Knowledge Asset Registry schema.</p></div>
+        <div class="timeline-item"><div class="num">2</div><h3>Week 2</h3><p class="mini">Build EDENA Governance Portal with risk tiers, agent access rules, and escalation triggers.</p></div>
+        <div class="timeline-item"><div class="num">3</div><h3>Week 3</h3><p class="mini">Build Florence-X Mission Control with projects, decisions, risks, and next actions.</p></div>
+        <div class="timeline-item"><div class="num">4</div><h3>Week 4</h3><p class="mini">Build Healthcare AGI Research Hub as the living evidence and strategy repository.</p></div>
+      </div>
+    </section>
+
+    <section class="wrap" id="decisions">
+      <h2>Decision Log</h2>
+      <table aria-label="Decision log">
+        <thead><tr><th>Decision</th><th>Rationale</th></tr></thead>
+        <tbody>
+          <tr><td>Use “governed knowledge asset” instead of “website.”</td><td>Prevents a cosmetic interpretation and aligns the work with healthcare governance.</td></tr>
+          <tr><td>Assign every site an EDENA tier.</td><td>Risk should be classified before content becomes decision-shaping.</td></tr>
+          <tr><td>Start with a five-site MVP.</td><td>Fits solo-founder execution reality while creating an operating system spine.</td></tr>
+          <tr><td>Keep agents read/search/summarize by default.</td><td>Protects human accountability and blocks autonomous clinical, legal, financial, or compliance authority.</td></tr>
+        </tbody>
+      </table>
+      <div class="cta">
+        <div>
+          <h3>One-sentence strategy</h3>
+          <p class="muted">Florence-X turns every major NAIO artifact into a living, EDENA-governed, agent-readable knowledge asset — creating a healthcare AI Knowledge Operating System where agents propose, humans judge, and nurses steward.</p>
+        </div>
+        <a class="button" href="#top">Back to top</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>Public safety note:</strong> This strategy site contains no PHI, patient data, secrets, credentials, or internal identifiers. It is intended for education, strategy, and decision support. It does not replace clinical judgment, legal advice, regulatory review, or accountable human governance.</p>
+      <p>NAIO / Florence-X · EDENA-governed knowledge work · Agents propose. Humans judge. Nurses steward.</p>
+    </div>
+  </footer>
+</body>
+</html>
