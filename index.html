@@ -76,7 +76,7 @@
     .site-card { position: relative; overflow: hidden; }
     .site-card:before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: var(--blue); }
     .site-card.orange:before { background: var(--orange); } .site-card.yellow:before { background: var(--yellow); } .site-card.green:before { background: var(--green); } .site-card.red:before { background: var(--red); }
-    .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 26px; }
+    .timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; margin-top: 26px; }
     .timeline-item { padding: 20px; }
     .num { width: 34px; height: 34px; border-radius: 12px; display: grid; place-items: center; background: rgba(137,201,255,0.16); color: var(--blue); font-weight: 900; margin-bottom: 14px; }
     .cta { margin: 44px 0 10px; padding: 30px; border-radius: 30px; background: linear-gradient(135deg, rgba(137,201,255,0.18), rgba(101,214,163,0.14)); border: 1px solid var(--line); display: flex; justify-content: space-between; gap: 22px; align-items: center; }
@@ -103,6 +103,7 @@
         <a href="#architecture">Architecture</a>
         <a href="#ladder">Ladder</a>
         <a href="#loops">Loops</a>
+        <a href="#training">Training</a>
         <a href="#roadmap">30-Day Plan</a>
       </div>
     </nav>
@@ -263,6 +264,59 @@
       </table>
     </section>
 
+    <section class="wrap" id="training">
+      <h2>AI Training, Token Governance, and Safe Experimentation</h2>
+      <p class="section-lead">AI training is becoming the bridge between AI lab token-growth demands and enterprise ROI discipline. For healthcare, the answer is not simply “spend fewer tokens.” The answer is to generate more clinical, educational, operational, and research value per token while preserving EDENA safety controls.</p>
+      <div class="grid-3">
+        <div class="pillar"><h3>1. Agentic Literacy</h3><p class="mini">Move workers from assisted AI to agent-orchestrated work: agent creation, supervision, model selection, workflow decomposition, and escalation judgment.</p></div>
+        <div class="pillar"><h3>2. Token-Efficiency Governance</h3><p class="mini">Track tokens, cost, agent budgets, value per token, model routing, escalation, caching, and monthly utilization reviews.</p></div>
+        <div class="pillar"><h3>3. Safe Experimentation</h3><p class="mini">Protect innovation from known-ROI bias by giving nurses and managers sandbox space to discover transformative workflows without PHI or production risk.</p></div>
+      </div>
+      <table aria-label="AI training economic risk map">
+        <thead><tr><th>Signal</th><th>EDENA Tier</th><th>NAIO Action</th></tr></thead>
+        <tbody>
+          <tr><td>AI training becomes economic necessity</td><td class="orange">Orange</td><td>Create NAIO AI Upskilling Doctrine and position SmartLearn as the workforce transformation layer.</td></tr>
+          <tr><td>Seat-based AI shifts to agentic usage economics</td><td class="orange">Orange</td><td>Define Florence-X token economy model and compare seat-based versus agentic pricing for hospitals.</td></tr>
+          <tr><td>Token scarcity and enterprise budget shock</td><td class="orange">Yellow → Orange</td><td>Create token-efficiency playbook, token budgeting templates, and CFO-facing AI ROI calculator.</td></tr>
+          <tr><td>Bottom-up agent experimentation</td><td class="orange">Orange</td><td>Launch SmartLearn Agent Sandbox and a governed agent experiment registry.</td></tr>
+          <tr><td>Mass-scale AI training</td><td class="orange">Green → Orange</td><td>Package NAIO Agentic Literacy Curriculum and Florence-X Chief-of-Staff training track.</td></tr>
+          <tr><td>Agent management as knowledge work primitive</td><td class="orange">Orange</td><td>Define Nurse as AI Orchestrator competency model and agent supervision simulations.</td></tr>
+        </tbody>
+      </table>
+      <div class="flow" aria-label="Token governance flow">
+        <span>Observe</span><b>→</b><span>Optimize</span><b>→</b><span>Govern</span><b>→</b><span>Train</span><b>→</b><span>Scale</span>
+      </div>
+      <div class="grid-2">
+        <div class="risk-card">
+          <h3>Token-Efficiency Governance</h3>
+          <p class="mini">Treat token stewardship like medication stewardship, cloud governance, or utilization management. Measure value per token: hours saved, revenue generated, errors prevented, compliance improvements, and research output divided by token cost.</p>
+        </div>
+        <div class="risk-card">
+          <h3>Model-Routing Rule</h3>
+          <p class="mini">Low-risk summaries and FAQs can use low-cost models. Policy analysis and workflow design need stronger models plus review. Clinical scenarios require expert review regardless of model quality.</p>
+        </div>
+      </div>
+      <table aria-label="Sandbox zone map">
+        <thead><tr><th>Sandbox Zone</th><th>Allowed Work</th><th>Data Boundary</th><th>EDENA Tier</th></tr></thead>
+        <tbody>
+          <tr><td>Green Sandbox</td><td>Chatbots, research assistants, tutors, learning agents.</td><td>Public information only; no PHI, HR data, or operational systems.</td><td class="green">Green</td></tr>
+          <tr><td>Yellow Sandbox</td><td>Workflow agents, staffing simulations, education workflows, meeting assistants.</td><td>Synthetic or deidentified data; no live production systems.</td><td class="yellow">Yellow</td></tr>
+          <tr><td>Orange Sandbox</td><td>Multi-agent workflows, agent teams, workflow automation.</td><td>Approved synthetic datasets; logging, auditing, and human review required.</td><td class="orange">Orange</td></tr>
+          <tr><td>Red Simulation Environment</td><td>Autonomous agents, recursive agents, self-improving systems, agent swarms.</td><td>Isolated environment; no external access; never production.</td><td class="red">Red</td></tr>
+        </tbody>
+      </table>
+      <div class="grid-2">
+        <div class="risk-card">
+          <h3>Minimum Safe Agent Policy</h3>
+          <p class="mini">Every healthcare agent needs a clear purpose, named human supervisor, EDENA tier, data boundary, forbidden actions, review process, escalation rule, audit log, and retirement rule.</p>
+        </div>
+        <div class="risk-card">
+          <h3>Practical NAIO Rule</h3>
+          <p class="mini">AI agents can assist care teams. They cannot become the care team. Nurse-led orchestration, physician-aligned clinical governance, privacy-first architecture, and human approval before clinical action remain non-negotiable.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="wrap" id="sites">
       <h2>Five-Site MVP</h2>
       <p class="section-lead">The solo-founder path is not to build ten platforms. Start with one minimum viable knowledge operating system: five linked, public-safe strategy sites.</p>
@@ -284,6 +338,7 @@
         <div class="timeline-item"><div class="num">2</div><h3>Week 2</h3><p class="mini">Build EDENA Governance Portal with risk tiers, agent access rules, and escalation triggers.</p></div>
         <div class="timeline-item"><div class="num">3</div><h3>Week 3</h3><p class="mini">Build Florence-X Mission Control with projects, decisions, risks, and next actions.</p></div>
         <div class="timeline-item"><div class="num">4</div><h3>Week 4</h3><p class="mini">Draft the Florence-X Loop Operating System concept: Goal Engine, Loop Engine, Agent Registry, EDENA controls, and human escalation.</p></div>
+        <div class="timeline-item"><div class="num">5</div><h3>Week 5</h3><p class="mini">Package the NAIO Agentic Literacy + Token Governance curriculum and launch the SmartLearn Agent Sandbox blueprint.</p></div>
       </div>
     </section>
 
@@ -297,6 +352,7 @@
           <tr><td>Start with a five-site MVP.</td><td>Fits solo-founder execution reality while creating an operating system spine.</td></tr>
           <tr><td>Keep agents read/search/summarize by default.</td><td>Protects human accountability and blocks autonomous clinical, legal, financial, or compliance authority.</td></tr>
           <tr><td>Add Florence-X Loop Operating System as the next strategic layer.</td><td>The AI advantage gap is shifting from chat use to agent use to loop orchestration; Florence-X must govern loops before they become hidden automation.</td></tr>
+          <tr><td>Make AI training and token governance a core Florence-X layer.</td><td>Healthcare organizations need agentic literacy, value-per-token discipline, safe experimentation budgets, and supervision standards to avoid both runaway cost and known-ROI bias.</td></tr>
         </tbody>
       </table>
       <div class="cta">
