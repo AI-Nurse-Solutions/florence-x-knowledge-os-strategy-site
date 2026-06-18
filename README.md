@@ -11,6 +11,8 @@ Florence-X turns major NAIO artifacts into living, EDENA-governed, agent-readabl
 - Strategic thesis
 - EDENA governance classification
 - Florence-X knowledge asset lifecycle
+- Knowledge Evolution Ladder
+- Practical conversion map
 - Five-site MVP
 - 30-day build plan
 - Decision log
