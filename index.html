@@ -47,7 +47,7 @@
     .links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 0.92rem; color: var(--muted); }
     .hero { padding: 76px 0 42px; }
     .kicker { color: var(--green); text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.78rem; font-weight: 800; }
-    h1 { font-size: clamp(2.6rem, 5.6vw, 5.8rem); line-height: 1.02; margin: 18px 0 24px; letter-spacing: -0.052em; max-width: 1000px; }
+    h1 { font-size: clamp(2.45rem, 5.1vw, 5.4rem); line-height: 1.08; margin: 18px 0 24px; letter-spacing: -0.035em; max-width: 1040px; }
     .lead { max-width: 820px; font-size: clamp(1.15rem, 2vw, 1.45rem); color: var(--muted); }
     .hero-grid { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 24px; align-items: stretch; margin-top: 42px; }
     .card, .pillar, .site-card, .timeline-item, .risk-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
@@ -56,7 +56,7 @@
     .muted { color: var(--muted); }
     .badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
     .badge { border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; background: rgba(255,255,255,0.06); font-size: 0.9rem; color: var(--muted); }
-    section { padding: 52px 0; }
+    section { padding: 52px 0; scroll-margin-top: 96px; }
     h2 { font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.02; letter-spacing: -0.055em; margin: 0 0 16px; }
     h3 { font-size: 1.25rem; margin: 0 0 8px; letter-spacing: -0.02em; }
     .section-lead { color: var(--muted); max-width: 780px; font-size: 1.08rem; }
@@ -102,6 +102,7 @@
         <a href="#governance">EDENA</a>
         <a href="#architecture">Architecture</a>
         <a href="#ladder">Ladder</a>
+        <a href="#loops">Loops</a>
         <a href="#roadmap">30-Day Plan</a>
       </div>
     </nav>
@@ -224,6 +225,44 @@
       </div>
     </section>
 
+    <section class="wrap" id="loops">
+      <h2>AI Use Is Moving from Chat to Agents to Loops</h2>
+      <p class="section-lead">The competitive gap is no longer simply between people who use AI and people who do not. The gap is between chat users, agent users, and loop designers. Florence-X should treat this as a workforce, governance, and operating-system transition.</p>
+      <div class="flow" aria-label="AI use evolution flow">
+        <span>Prompt</span><b>→</b><span>Answer</span><b>→</b><span>Agent</span><b>→</b><span>Loop</span><b>→</b><span>Agent Teams</span><b>→</b><span>Knowledge Sites</span><b>→</b><span>Human Oversight</span>
+      </div>
+      <table aria-label="AI use evolution risk map">
+        <thead><tr><th>Era / Pattern</th><th>Operating Model</th><th>NAIO Interpretation</th><th>EDENA Tier</th></tr></thead>
+        <tbody>
+          <tr><td>Chat-centric AI</td><td>Human → Prompt → Response</td><td>Useful for drafting, summarizing, and learning; limited operational leverage.</td><td class="green">Green–Yellow</td></tr>
+          <tr><td>Agent-centric AI</td><td>Human → Agent → Result</td><td>Agents become productivity engines for nurses, managers, researchers, educators, and administrators.</td><td class="yellow">Yellow–Orange</td></tr>
+          <tr><td>Loop-centric AI</td><td>Human → Goal → Loop → Agent → Work</td><td>Loops manage agents, agents manage tasks, humans manage goals.</td><td class="orange">Orange</td></tr>
+          <tr><td>Florence-X Vision</td><td>Goal → NAMOS → Agent Teams → Knowledge Sites → Operational Actions → Human Oversight</td><td>Healthcare AI becomes an EDENA-governed operating system, not a collection of tools.</td><td class="red">Orange–Red depending on authority</td></tr>
+        </tbody>
+      </table>
+      <div class="grid-2">
+        <div class="risk-card">
+          <h3>Highest-priority initiative: FLOS</h3>
+          <p class="mini"><strong>Florence-X Loop Operating System</strong> combines a Goal Engine, Loop Engine, Agent Registry, Knowledge Sites, EDENA Governance Layer, Human Escalation Layer, and ICU Singularity Dashboard.</p>
+        </div>
+        <div class="risk-card">
+          <h3>Governance implication</h3>
+          <p class="mini">Loops create hidden decision chains unless they are observable. EDENA must require owner assignment, audit logging, escalation rules, resource limits, and human approval before any clinical, financial, legal, regulatory, or operational authority is granted.</p>
+        </div>
+      </div>
+      <table aria-label="Agent and loop chapter action map">
+        <thead><tr><th>Strategic Signal</th><th>Risk</th><th>Immediate NAIO Action</th></tr></thead>
+        <tbody>
+          <tr><td>Government ownership of AI labs</td><td class="red">Red: sovereignty, capture, centralized control.</td><td>Build Healthcare AI Sovereignty Framework and EDENA Government-AI Governance Matrix.</td></tr>
+          <tr><td>Compute becomes the new oil</td><td class="orange">Orange: concentration, shortages, lock-in.</td><td>Create Florence-X Compute Strategy and AI Infrastructure Risk Registry.</td></tr>
+          <tr><td>Super-app AI workspaces</td><td class="yellow">Yellow: dependency and tool sprawl.</td><td>Define healthcare-specific AI workspace and ICU Singularity command interface.</td></tr>
+          <tr><td>AI advantage gap</td><td class="orange">Orange: workforce inequality and skill polarization.</td><td>Create AI Literacy Ladder and Nurse Agent Adoption Framework.</td></tr>
+          <tr><td>Codex-style agent builders</td><td class="orange">Orange: shadow software and governance bypass.</td><td>Launch Healthcare Agent Builder Program and Agent Sandbox Governance Model.</td></tr>
+          <tr><td>Loops orchestrating agents</td><td class="orange">Orange: drift, runaway automation, hidden chains.</td><td>Define Florence-X Loop Architecture, Loop Governance Standards, and Human Escalation Protocols.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
     <section class="wrap" id="sites">
       <h2>Five-Site MVP</h2>
       <p class="section-lead">The solo-founder path is not to build ten platforms. Start with one minimum viable knowledge operating system: five linked, public-safe strategy sites.</p>
@@ -244,7 +283,7 @@
         <div class="timeline-item"><div class="num">1</div><h3>Week 1</h3><p class="mini">Draft EDENA Website Governance Standard v0.1 and the Knowledge Asset Registry schema.</p></div>
         <div class="timeline-item"><div class="num">2</div><h3>Week 2</h3><p class="mini">Build EDENA Governance Portal with risk tiers, agent access rules, and escalation triggers.</p></div>
         <div class="timeline-item"><div class="num">3</div><h3>Week 3</h3><p class="mini">Build Florence-X Mission Control with projects, decisions, risks, and next actions.</p></div>
-        <div class="timeline-item"><div class="num">4</div><h3>Week 4</h3><p class="mini">Build Healthcare AGI Research Hub as the living evidence and strategy repository.</p></div>
+        <div class="timeline-item"><div class="num">4</div><h3>Week 4</h3><p class="mini">Draft the Florence-X Loop Operating System concept: Goal Engine, Loop Engine, Agent Registry, EDENA controls, and human escalation.</p></div>
       </div>
     </section>
 
@@ -257,6 +296,7 @@
           <tr><td>Assign every site an EDENA tier.</td><td>Risk should be classified before content becomes decision-shaping.</td></tr>
           <tr><td>Start with a five-site MVP.</td><td>Fits solo-founder execution reality while creating an operating system spine.</td></tr>
           <tr><td>Keep agents read/search/summarize by default.</td><td>Protects human accountability and blocks autonomous clinical, legal, financial, or compliance authority.</td></tr>
+          <tr><td>Add Florence-X Loop Operating System as the next strategic layer.</td><td>The AI advantage gap is shifting from chat use to agent use to loop orchestration; Florence-X must govern loops before they become hidden automation.</td></tr>
         </tbody>
       </table>
       <div class="cta">

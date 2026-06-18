@@ -13,6 +13,8 @@ Florence-X turns major NAIO artifacts into living, EDENA-governed, agent-readabl
 - Florence-X knowledge asset lifecycle
 - Knowledge Evolution Ladder
 - Practical conversion map
+- Chat → Agents → Loops AI use evolution
+- Florence-X Loop Operating System (FLOS)
 - Five-site MVP
 - 30-day build plan
 - Decision log
