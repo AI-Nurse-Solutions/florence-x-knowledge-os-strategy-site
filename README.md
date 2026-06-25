@@ -19,6 +19,8 @@ Florence-X turns major NAIO artifacts into living, EDENA-governed, agent-readabl
 - Token-efficiency governance
 - Safe experimentation sandbox architecture
 - Healthcare agent supervision standards
+- Product gems from Proven-Better-New and founder mode
+- Nurse AI Internet Treasure positioning
 - Five-site MVP
 - 30-day build plan
 - Decision log
