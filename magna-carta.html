@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NAIO Magna Carta · Weather. Serve. Thrive.</title>
+  <meta name="description" content="Robert Domondon's NAIO Magna Carta: a mission, values, and collaboration dashboard for nurse-led, EDENA-governed AI stewardship." />
+  <meta property="og:title" content="NAIO Magna Carta · Weather. Serve. Thrive." />
+  <meta property="og:description" content="A personal and organizational charter for sovereign nurse-led AI stewardship." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #060b14;
+      --bg-2: #08111f;
+      --navy: #10213f;
+      --ink: #f4f8ff;
+      --muted: #aebdd1;
+      --dim: #7f8fa6;
+      --teal: #13c2a3;
+      --teal-soft: rgba(19,194,163,0.16);
+      --gold: #f4b942;
+      --gold-soft: rgba(244,185,66,0.16);
+      --rose: #ff7b86;
+      --blue: #89c9ff;
+      --violet: #c6a6ff;
+      --green: #65d6a3;
+      --orange: #ffae66;
+      --red: #ff7b86;
+      --card: rgba(255,255,255,0.075);
+      --card-strong: rgba(255,255,255,0.12);
+      --line: rgba(255,255,255,0.15);
+      --line-strong: rgba(255,255,255,0.25);
+      --shadow: 0 24px 90px rgba(0,0,0,0.46);
+      --radius: 28px;
+      --radius-sm: 18px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% -4%, rgba(19,194,163,0.26), transparent 33rem),
+        radial-gradient(circle at 88% 2%, rgba(244,185,66,0.17), transparent 32rem),
+        radial-gradient(circle at 78% 58%, rgba(137,201,255,0.12), transparent 36rem),
+        linear-gradient(180deg, #060b14 0%, #08111f 45%, #050810 100%);
+      line-height: 1.58;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { width: min(var(--max), calc(100% - 36px)); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--line);
+      background: rgba(6,11,20,0.78);
+      backdrop-filter: blur(18px);
+    }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 17px 0; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; letter-spacing: -0.01em; }
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(19,194,163,0.9), rgba(244,185,66,0.92));
+      box-shadow: 0 0 36px rgba(244,185,66,0.22), inset 0 1px 0 rgba(255,255,255,0.4);
+      color: #08111f;
+      font-weight: 1000;
+    }
+    .links { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; font-size: 0.9rem; }
+    .links a { color: var(--muted); }
+    .links a.primary-link {
+      color: #06101e;
+      font-weight: 900;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--teal));
+    }
+
+    .hero { padding: 88px 0 44px; }
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 1080px;
+      margin: 18px 0 20px;
+      font-size: clamp(3rem, 7vw, 7.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+    h2 {
+      font-size: clamp(2.15rem, 4.8vw, 4.6rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+    }
+    h3 { font-size: 1.2rem; line-height: 1.2; letter-spacing: -0.025em; margin-bottom: 8px; }
+    .lead { max-width: 870px; color: var(--muted); font-size: clamp(1.18rem, 2.1vw, 1.55rem); }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 28px 0 0; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 12px 17px;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: rgba(255,255,255,0.075);
+      font-weight: 850;
+      box-shadow: 0 14px 42px rgba(0,0,0,0.22);
+    }
+    .btn.gold { color: #08111f; background: linear-gradient(135deg, var(--gold), var(--teal)); border: 0; }
+
+    .hero-grid { display: grid; grid-template-columns: 1.28fr 0.72fr; gap: 18px; margin-top: 42px; align-items: stretch; }
+    .card, .panel, .article-card, .quote-card, .path-card, .org-card, .principle-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .card { padding: clamp(22px, 3vw, 34px); }
+    .statement {
+      font-size: clamp(1.45rem, 3vw, 2.65rem);
+      line-height: 1.14;
+      letter-spacing: -0.04em;
+      font-weight: 850;
+    }
+    .muted { color: var(--muted); }
+    .dim { color: var(--dim); }
+    .tags { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 22px; }
+    .tag { border: 1px solid var(--line); background: rgba(255,255,255,0.065); color: var(--muted); border-radius: 999px; padding: 7px 10px; font-size: 0.86rem; }
+    .tag.gold { color: var(--gold); border-color: rgba(244,185,66,0.28); background: var(--gold-soft); }
+    .tag.teal { color: var(--teal); border-color: rgba(19,194,163,0.28); background: var(--teal-soft); }
+
+    section { padding: 56px 0; scroll-margin-top: 92px; }
+    .section-head { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(280px, 0.45fr); gap: 26px; align-items: end; margin-bottom: 26px; }
+    .section-lead { color: var(--muted); font-size: 1.06rem; max-width: 780px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .panel, .article-card, .quote-card, .path-card, .org-card, .principle-card { padding: 22px; }
+    .small { font-size: 0.93rem; color: var(--muted); }
+
+    .metric-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 24px; }
+    .metric {
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      padding: 17px;
+    }
+    .metric strong { display: block; font-size: 1.7rem; line-height: 1; letter-spacing: -0.04em; }
+    .metric span { color: var(--muted); font-size: 0.84rem; }
+
+    .constitution { counter-reset: articles; display: grid; gap: 16px; }
+    .article-card { position: relative; overflow: hidden; padding-left: 82px; min-height: 118px; }
+    .article-card::before {
+      counter-increment: articles;
+      content: counter(articles, decimal-leading-zero);
+      position: absolute;
+      left: 22px;
+      top: 22px;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(244,185,66,0.18), rgba(19,194,163,0.16));
+      border: 1px solid var(--line);
+      color: var(--gold);
+      font-weight: 1000;
+      font-size: 0.8rem;
+    }
+    .article-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 82px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(244,185,66,0.44), transparent);
+    }
+
+    .principle-card { min-height: 184px; position: relative; overflow: hidden; }
+    .principle-card .icon { font-size: 1.4rem; margin-bottom: 12px; }
+    .principle-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: var(--teal); }
+    .principle-card.gold::before { background: var(--gold); }
+    .principle-card.orange::before { background: var(--orange); }
+    .principle-card.rose::before { background: var(--rose); }
+
+    table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: 22px; border: 1px solid var(--line); background: rgba(255,255,255,0.055); margin-top: 20px; }
+    th, td { text-align: left; vertical-align: top; padding: 15px 14px; border-bottom: 1px solid var(--line); }
+    th { color: #fff; background: rgba(255,255,255,0.08); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.09em; }
+    tr:last-child td { border-bottom: 0; }
+    .green { color: var(--green); } .yellow { color: var(--gold); } .orange { color: var(--orange); } .red { color: var(--red); } .blue { color: var(--blue); } .teal { color: var(--teal); }
+
+    .org-card { position: relative; min-height: 206px; overflow: hidden; }
+    .org-card::after {
+      content: "";
+      position: absolute;
+      right: -40px;
+      top: -40px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244,185,66,0.13), transparent 70%);
+      pointer-events: none;
+    }
+    .org-label { color: var(--gold); font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.72rem; }
+
+    .path { display: grid; grid-template-columns: repeat(7, minmax(150px, 1fr)); gap: 12px; overflow-x: auto; padding: 2px 2px 12px; }
+    .path-card { min-width: 150px; border-radius: 22px; box-shadow: none; }
+    .path-num { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 12px; color: #08111f; background: linear-gradient(135deg, var(--gold), var(--teal)); font-weight: 1000; margin-bottom: 12px; }
+
+    .quote-board { columns: 3 280px; column-gap: 18px; }
+    .quote-card { display: inline-block; width: 100%; margin: 0 0 18px; break-inside: avoid; box-shadow: 0 18px 70px rgba(0,0,0,0.34); }
+    .quote-card blockquote { margin: 0; font-size: 1.15rem; line-height: 1.28; letter-spacing: -0.025em; font-weight: 780; }
+    .quote-card p { margin: 14px 0 0; color: var(--dim); font-size: 0.88rem; }
+
+    .pledge {
+      border-radius: 36px;
+      padding: clamp(26px, 5vw, 48px);
+      border: 1px solid rgba(244,185,66,0.28);
+      background:
+        linear-gradient(135deg, rgba(244,185,66,0.17), rgba(19,194,163,0.12)),
+        rgba(255,255,255,0.06);
+      box-shadow: var(--shadow);
+    }
+    .pledge-lines { display: grid; gap: 12px; margin: 26px 0 0; font-size: clamp(1.15rem, 2vw, 1.55rem); font-weight: 830; line-height: 1.25; letter-spacing: -0.025em; }
+    .divider { height: 1px; background: var(--line); margin: 26px 0; }
+
+    .callout {
+      border-radius: 30px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 16% 0%, rgba(244,185,66,0.18), transparent 22rem),
+        rgba(255,255,255,0.065);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+    }
+
+    footer { margin-top: 40px; padding: 38px 0 68px; border-top: 1px solid var(--line); color: var(--muted); }
+
+    @media (max-width: 960px) {
+      header { position: static; }
+      .links { display: none; }
+      .hero-grid, .section-head, .grid-2, .grid-3, .grid-4, .metric-row { grid-template-columns: 1fr; }
+      .hero { padding-top: 58px; }
+      .callout { grid-template-columns: 1fr; }
+      .article-card { padding-left: 68px; }
+      .article-card::before { left: 16px; }
+      .article-card::after { left: 68px; }
+      table { font-size: 0.9rem; }
+      th, td { padding: 12px 10px; }
+    }
+
+    @media print {
+      header, .hero-actions { display: none; }
+      body { background: #fff; color: #111827; }
+      .card, .panel, .article-card, .quote-card, .path-card, .org-card, .principle-card, .pledge, .callout { box-shadow: none; border-color: #d7dce5; background: #fff; color: #111827; }
+      .muted, .small, footer { color: #4b5563; }
+      a { color: #0f766e; }
+      section { padding: 24px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="NAIO Magna Carta home">
+        <span class="brand-mark">N</span>
+        <span>NAIO Magna Carta</span>
+      </a>
+      <div class="links">
+        <a href="#mission">Mission</a>
+        <a href="#articles">Articles</a>
+        <a href="#organizations">Organizations</a>
+        <a href="#principles">Principles</a>
+        <a href="#products">Products</a>
+        <a href="#growth">Growth Path</a>
+        <a href="#quotes">Maxims</a>
+        <a class="primary-link" href="index.html">Knowledge OS</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <div class="eyebrow">Robert Domondon · NAIO / Florence-X / NIN Charter</div>
+      <h1>Weather. Serve. Thrive.</h1>
+      <p class="lead">A personal mission and collaboration dashboard for building nurse-led, sovereign, EDENA-governed intelligence systems that protect human dignity in both the AI boom and the AI bust.</p>
+      <div class="hero-actions">
+        <a class="btn gold" href="#pledge">Read the collaborator pledge</a>
+        <a class="btn" href="#quotes">Use the maxims</a>
+        <a class="btn" href="javascript:window.print()">Print / save PDF</a>
+      </div>
+
+      <div class="hero-grid">
+        <div class="card">
+          <div class="statement">We do not build artificial intelligence to replace the nurse. We build governed systems that help nurses carry the lamp, keep the ledger, and protect the vulnerable when complexity rises.</div>
+          <div class="tags">
+            <span class="tag gold">Agents propose</span>
+            <span class="tag teal">Humans judge</span>
+            <span class="tag">Nurses steward</span>
+            <span class="tag">No PHI by default</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Charter purpose</h3>
+          <p class="muted">This is the orientation document for anyone who joins, funds, partners, learns, builds, teaches, or collaborates with NAIO, NIN, Florence-X, EDENA, SmartLearn, NAMOS, or the Nurse AI OS ecosystem.</p>
+          <div class="divider"></div>
+          <p class="small"><strong>Public safety note:</strong> This is a values and operating charter, not legal, financial, medical, or clinical advice. Clinical judgment, privacy law, institutional governance, and human accountability remain non-negotiable.</p>
+        </div>
+      </div>
+
+      <div class="metric-row" aria-label="Magna Carta dashboard summary metrics">
+        <div class="metric"><strong>1</strong><span>Safety spine: EDENA governs every tier of autonomy.</span></div>
+        <div class="metric"><strong>3</strong><span>Spheres: personal, professional, community-entrepreneurial.</span></div>
+        <div class="metric"><strong>6</strong><span>Durable skills for nurses to build through tech cycles.</span></div>
+        <div class="metric"><strong>∞</strong><span>Duty: steward intelligence toward dignity and human primacy.</span></div>
+      </div>
+    </section>
+
+    <section class="wrap" id="mission">
+      <div class="section-head">
+        <div>
+          <h2>Personal Mission</h2>
+          <p class="section-lead">To create a nurse-led civilization layer for healthcare AI: one that helps clinicians, leaders, educators, builders, and communities use intelligence without surrendering judgment, dignity, safety, or soul.</p>
+        </div>
+        <div class="panel">
+          <h3>North Star Question</h3>
+          <p class="small">If a bedside nurse at 3 AM met this system in the middle of fatigue, risk, and responsibility, would it reduce burden while protecting judgment?</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="principle-card gold">
+          <div class="icon">🪔</div>
+          <h3>Carry the lamp</h3>
+          <p class="small">Lead with presence, compassion, and moral attention. Every product must help a human be more attentive, not less.</p>
+        </div>
+        <div class="principle-card">
+          <div class="icon">📒</div>
+          <h3>Keep the ledger</h3>
+          <p class="small">Document proof, risk, decisions, failures, audits, and learning. If we cannot trace it, we do not scale it.</p>
+        </div>
+        <div class="principle-card orange">
+          <div class="icon">🛡️</div>
+          <h3>Steward the system</h3>
+          <p class="small">Guide intelligence like a nurse protects the vulnerable: with humility, boundaries, escalation, and accountable care.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="thesis">
+      <div class="section-head">
+        <div>
+          <h2>The Operating Thesis</h2>
+          <p class="section-lead">AI may be real and still be financially overbuilt. The crash of a bubble does not disprove the technology; it punishes dependency, speculation, and fragile operating models.</p>
+        </div>
+        <div class="panel">
+          <h3>Strategic posture</h3>
+          <p class="small">Optimistic about capability. Sober about markets. Strict about governance. Practical about resilience.</p>
+        </div>
+      </div>
+
+      <table aria-label="Operating wisdom from AI boom and bubble risk">
+        <thead><tr><th>Reality</th><th>Danger</th><th>NAIO Response</th></tr></thead>
+        <tbody>
+          <tr><td>Great technologies attract bubbles.</td><td>People confuse market euphoria with durable capability.</td><td>Teach skills over hype and proof over valuation.</td></tr>
+          <tr><td>Vendors, tools, prices, and platforms can fail.</td><td>Nurses become dependent on systems they do not control.</td><td>Build local-first workflows, exports, backups, and manual fallbacks.</td></tr>
+          <tr><td>AI can optimize destructively when goals are sloppy.</td><td>Speed scales harm faster than people can see it.</td><td>Require EDENA purpose, boundaries, human gates, audit trail, and stop conditions.</td></tr>
+          <tr><td>Institutional social contracts can fray.</td><td>Workers feel alone, replaceable, and unheard.</td><td>Build NIN as a trusted learning commons, not merely a marketing channel.</td></tr>
+          <tr><td>Healthcare is high-trust, high-consequence work.</td><td>Generic AI adoption misses workflow reality and moral injury.</td><td>Center nurses as stewards of clinical intelligence from bedside to boardroom.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="wrap" id="articles">
+      <div class="section-head">
+        <div>
+          <h2>The Articles of Our Magna Carta</h2>
+          <p class="section-lead">These are the non-negotiables. Collaborators may bring different tools, disciplines, faith traditions, politics, and markets. They may not bypass these principles.</p>
+        </div>
+        <div class="panel">
+          <h3>Default decision rule</h3>
+          <p class="small">Safety first. Nurses first. Then learning and revenue. When ambiguous, tier up and slow down.</p>
+        </div>
+      </div>
+
+      <div class="constitution">
+        <div class="article-card"><h3>Dignity is the root requirement.</h3><p class="small">No product, service, dashboard, agent, or community practice may treat human beings as data exhaust, workflow friction, or optimization targets.</p></div>
+        <div class="article-card"><h3>Human judgment is never removed by convenience.</h3><p class="small">Agents may draft, retrieve, summarize, simulate, and recommend. Humans remain accountable for clinical, ethical, legal, financial, and relational decisions.</p></div>
+        <div class="article-card"><h3>Nurses are stewards, not end users.</h3><p class="small">Nurses see workflow failure, workarounds, burden, moral distress, and safety signals early. They deserve formal authority in AI adoption.</p></div>
+        <div class="article-card"><h3>Skills outlast tools.</h3><p class="small">We teach agent supervision, verification, workflow design, local knowledge management, community leadership, and governance habits — not dependency on a single app.</p></div>
+        <div class="article-card"><h3>Sovereignty is a care practice.</h3><p class="small">People and organizations should own their files, templates, notes, decisions, backups, and exit paths. Cloud AI gives leverage; local AI gives resilience.</p></div>
+        <div class="article-card"><h3>No-PHI is the default learning boundary.</h3><p class="small">Foundational education uses public, synthetic, deidentified, or personal non-clinical data. Patient-specific use escalates governance immediately.</p></div>
+        <div class="article-card"><h3>Trust must precede scale.</h3><p class="small">Adoption without trust becomes compliance theater. We earn trust through proof, participation, transparency, and accountable review.</p></div>
+        <div class="article-card"><h3>Every loop needs a stop condition.</h3><p class="small">Recurring agents, automations, and workflows must have a trigger, goal, evaluation, memory rule, cost limit, escalation path, and safe shutdown.</p></div>
+        <div class="article-card"><h3>Proof of good beats proof of speed.</h3><p class="small">We measure burden relief, judgment preservation, safety, dignity, equity, trust, and sustainability — not productivity alone.</p></div>
+        <div class="article-card"><h3>Community is resilience infrastructure.</h3><p class="small">Lamp Huddles, local chapters, peer review, and shared learning make nurses stronger than any individual tool stack.</p></div>
+        <div class="article-card"><h3>Local legitimacy matters.</h3><p class="small">One doctrine, many local doors. The same safety spine adapts to North America, the Philippines, Southeast Asia, and global nursing communities.</p></div>
+        <div class="article-card"><h3>We prepare for both boom and bust.</h3><p class="small">We build systems that work when AI gets cheaper and more capable — and habits that survive when tools disappear, prices rise, or markets collapse.</p></div>
+      </div>
+    </section>
+
+    <section class="wrap" id="organizations">
+      <div class="section-head">
+        <div>
+          <h2>What I Envision for the Organizations</h2>
+          <p class="section-lead">Each brand has a distinct responsibility. Together they form a governed ecosystem: doctrine, learning, community, evidence, products, and orchestration.</p>
+        </div>
+        <div class="panel">
+          <h3>Unifying sentence</h3>
+          <p class="small">Where Nightingale meets Neural Net: care, evidence, and governed intelligence serving human dignity.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="org-card"><div class="org-label">NAIO Institute</div><h3>Authority and standards</h3><p class="small">The institutional home for nurse-led AI governance, certification, doctrine, policy, and professional legitimacy.</p></div>
+        <div class="org-card"><div class="org-label">NIN</div><h3>Community and movement</h3><p class="small">A trusted nurse intelligence network: Lamp Huddles, local chapters, ambassadors, peer review, mutual aid, and builder energy.</p></div>
+        <div class="org-card"><div class="org-label">Florence-X</div><h3>Operating system and orchestration</h3><p class="small">The advanced coordination layer: governed agent teams, mission control, knowledge sites, dashboards, and institutional readiness.</p></div>
+        <div class="org-card"><div class="org-label">EDENA</div><h3>Governance kernel</h3><p class="small">Ethical Design & Enablement for Nursing Augmentation: the safety spine that controls autonomy, escalation, and accountability.</p></div>
+        <div class="org-card"><div class="org-label">SmartLearn</div><h3>Education and credentialing</h3><p class="small">The learning engine for Nurse AI OS, agent supervision, signal curation, builder-distributor labs, and governance leadership.</p></div>
+        <div class="org-card"><div class="org-label">NAMOS / Research</div><h3>Signals and evidence</h3><p class="small">The intelligence function watching technology, workforce, regulation, vendor fragility, proof, risk, and opportunity.</p></div>
+      </div>
+    </section>
+
+    <section class="wrap" id="principles">
+      <div class="section-head">
+        <div>
+          <h2>Principles for Joining or Collaborating</h2>
+          <p class="section-lead">Collaboration here is not passive affiliation. It is a covenant to build in ways that make nurses stronger, patients safer, communities wiser, and institutions more accountable.</p>
+        </div>
+        <div class="panel">
+          <h3>Minimum entry posture</h3>
+          <p class="small">Come with humility. Bring evidence. Respect licensure. Protect the vulnerable. Accept governance.</p>
+        </div>
+      </div>
+
+      <div class="grid-4">
+        <div class="principle-card gold"><div class="icon">🧭</div><h3>Mission fit</h3><p class="small">You must serve the dignity, safety, empowerment, and professional authority of nurses and the people they care for.</p></div>
+        <div class="principle-card"><div class="icon">🔎</div><h3>Claim discipline</h3><p class="small">Separate known, assumed, unknown, recommended, and decided. Never imply validation without proof.</p></div>
+        <div class="principle-card orange"><div class="icon">🚧</div><h3>Boundary respect</h3><p class="small">No PHI, credentials, hidden surveillance, autonomous care claims, or governance bypass in foundational work.</p></div>
+        <div class="principle-card rose"><div class="icon">🤝</div><h3>Community trust</h3><p class="small">Do not extract from nurses. Listen, credit, protect, compensate where appropriate, and build reusable value.</p></div>
+        <div class="principle-card"><div class="icon">🛠️</div><h3>Practical usefulness</h3><p class="small">If a tired nurse cannot see the use, the design is not finished. Simplicity is stewardship.</p></div>
+        <div class="principle-card gold"><div class="icon">📚</div><h3>Teach to transfer</h3><p class="small">Every framework should leave the learner more capable outside our platform than before they entered it.</p></div>
+        <div class="principle-card orange"><div class="icon">🧯</div><h3>Rollback readiness</h3><p class="small">Every pilot, agent, dashboard, and workflow needs a fallback, stop condition, and named accountable owner.</p></div>
+        <div class="principle-card"><div class="icon">🌱</div><h3>Scale good</h3><p class="small">Growth is welcome only when care, trust, judgment, equity, and sustainability scale with it.</p></div>
+      </div>
+    </section>
+
+    <section class="wrap" id="products">
+      <div class="section-head">
+        <div>
+          <h2>How This Guides Products, Services, and Communities</h2>
+          <p class="section-lead">The Magna Carta is not decoration. It shapes what gets built, how it is sold, who governs it, what is refused, and how communities grow.</p>
+        </div>
+        <div class="panel">
+          <h3>Product test</h3>
+          <p class="small">Does it build sovereignty, skill, trust, and stewardship — or does it create dependency, opacity, and speed without accountability?</p>
+        </div>
+      </div>
+
+      <table aria-label="How principles guide products services and communities">
+        <thead><tr><th>Surface</th><th>What We Build</th><th>What We Refuse</th><th>Proof of Good</th></tr></thead>
+        <tbody>
+          <tr><td>Nurse AI OS</td><td>Local-first personal/professional/community workflows, no-PHI templates, SOUL files, daily briefing agents, backups, and decision cards.</td><td>Opaque dependence on one vendor or patient-care shortcuts.</td><td>Nurses feel less overloaded and more in control of their judgment.</td></tr>
+          <tr><td>SmartLearn</td><td>Skill-stack curriculum: operator, supervisor, signal curator, builder-distributor, huddle steward, governance leader.</td><td>Tool tours that age quickly or promote cognitive outsourcing.</td><td>Learners can explain, verify, adapt, and teach the workflow themselves.</td></tr>
+          <tr><td>NIN Community</td><td>Lamp Huddles, ambassador kits, local chapters, peer-review rituals, skill exchanges, and resilience circles.</td><td>Community as funnel-only marketing or vanity engagement.</td><td>Members leave with trust, practical moves, and real relationships.</td></tr>
+          <tr><td>EDENA Governance</td><td>Risk tiers, human gates, escalation rules, agent passports, audit trails, stop conditions, and claim-vs-proof discipline.</td><td>Autonomous clinical, legal, financial, or compliance authority without explicit approval.</td><td>Every decision-shaping artifact has owner, tier, boundary, review cadence, and rollback path.</td></tr>
+          <tr><td>Florence-X</td><td>Knowledge sites, mission control, agent orchestration, readiness dashboards, and institutional operating models.</td><td>Black-box automation or agentic workflows that hide accountability.</td><td>Work is more visible, governable, and reversible.</td></tr>
+          <tr><td>NAMOS Intelligence</td><td>Technology assessment, vendor fragility tracking, workforce signals, regulatory monitoring, and trend pulses.</td><td>Hype summaries detached from proof or risk.</td><td>Strategic decisions become better because signal is separated from noise.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="wrap" id="growth">
+      <div class="section-head">
+        <div>
+          <h2>Growth and Empowerment Path</h2>
+          <p class="section-lead">Growth with NAIO is not about becoming dependent on a tool. It is about becoming the kind of nurse, builder, leader, and steward who can guide intelligent systems responsibly.</p>
+        </div>
+        <div class="panel">
+          <h3>Promise to learners</h3>
+          <p class="small">You should leave more skilled, more sovereign, more trusted, and more useful to your family, unit, organization, and community.</p>
+        </div>
+      </div>
+
+      <div class="path" aria-label="NAIO growth pathway">
+        <div class="path-card"><div class="path-num">1</div><h3>AI User</h3><p class="small">Learn no-PHI boundaries, safe prompting, verification, and personal organization.</p></div>
+        <div class="path-card"><div class="path-num">2</div><h3>Nurse AI Operator</h3><p class="small">Build a local-first Nurse AI OS and daily briefing workflow.</p></div>
+        <div class="path-card"><div class="path-num">3</div><h3>Agent Supervisor</h3><p class="small">Define goals, permissions, sources, evals, human gates, and stop conditions.</p></div>
+        <div class="path-card"><div class="path-num">4</div><h3>Signal Curator</h3><p class="small">Translate AI noise into nurse-relevant action with EDENA risk awareness.</p></div>
+        <div class="path-card"><div class="path-num">5</div><h3>Builder-Distributor</h3><p class="small">Prototype one safe workflow, demo it, gather feedback, and iterate publicly.</p></div>
+        <div class="path-card"><div class="path-num">6</div><h3>Lamp Huddle Steward</h3><p class="small">Host trusted rooms where nurses learn, question, and build together.</p></div>
+        <div class="path-card"><div class="path-num">7</div><h3>Florence-X Orchestrator</h3><p class="small">Guide governed agent teams, dashboards, and institutional readiness.</p></div>
+      </div>
+    </section>
+
+    <section class="wrap" id="edena">
+      <div class="section-head">
+        <div>
+          <h2>EDENA Risk Posture</h2>
+          <p class="section-lead">The Magna Carta becomes operational through EDENA. Every artifact, agent, workflow, community practice, and knowledge site gets risk-tiered before it is trusted.</p>
+        </div>
+        <div class="panel">
+          <h3>Tier-up rule</h3>
+          <p class="small">When a workflow influences clinical judgment, operations, staffing, finance, legal, compliance, or public trust, increase governance before increasing autonomy.</p>
+        </div>
+      </div>
+
+      <table aria-label="EDENA tier map for the Magna Carta">
+        <thead><tr><th>Tier</th><th>Allowed posture</th><th>Requires</th><th>Examples</th></tr></thead>
+        <tbody>
+          <tr><td class="green"><strong>Green</strong></td><td>Education, reflection, personal productivity, public content, no PHI.</td><td>Basic safety note and human review.</td><td>Study plan, personal briefing, huddle prompt, no-PHI templates.</td></tr>
+          <tr><td class="yellow"><strong>Yellow</strong></td><td>Decision support, team education, organizational influence, policy summaries.</td><td>Named owner, review cadence, sources, and claim discipline.</td><td>Strategy portals, community kits, leader briefings, research hubs.</td></tr>
+          <tr><td class="orange"><strong>Orange</strong></td><td>Operational dashboards, multi-agent workflows, monitoring, coordination.</td><td>Governance review, audit trail, stop condition, fallback, escalation.</td><td>Mission control, readiness dashboard, intelligence hub, pilot registry.</td></tr>
+          <tr><td class="red"><strong>Red</strong></td><td>Clinical, financial, legal, regulatory, PHI-heavy, or autonomous authority.</td><td>Block until sandboxed, institutionally approved, continuously governed.</td><td>Clinical decision support, patient communication, orders, credentialing, compliance authority.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="wrap" id="quotes">
+      <div class="section-head">
+        <div>
+          <h2>Quotable Maxims</h2>
+          <p class="section-lead">Use these lines in landing pages, talks, huddles, course modules, grant proposals, LinkedIn posts, and collaborator orientation.</p>
+        </div>
+        <div class="panel">
+          <h3>Voice rule</h3>
+          <p class="small">Secular but reverent. Clinically grounded. Warm without hype. Conviction without contempt.</p>
+        </div>
+      </div>
+
+      <div class="quote-board">
+        <div class="quote-card"><blockquote>Agents propose. Humans judge. Nurses steward.</blockquote><p>Core operating mantra.</p></div>
+        <div class="quote-card"><blockquote>Carry the lamp. Keep the ledger.</blockquote><p>Florence Nightingale spine: compassion plus evidence.</p></div>
+        <div class="quote-card"><blockquote>Cloud AI gives leverage. Local AI gives resilience. EDENA gives conscience. NIN gives trust.</blockquote><p>Sovereign setup doctrine.</p></div>
+        <div class="quote-card"><blockquote>Build the nurse, not the dependency.</blockquote><p>Course design rule.</p></div>
+        <div class="quote-card"><blockquote>Skills survive bubbles. Tool habits do not.</blockquote><p>Tech-winter resilience.</p></div>
+        <div class="quote-card"><blockquote>If intelligence cannot protect the vulnerable, it is not ready to coordinate care.</blockquote><p>Protective stewardship test.</p></div>
+        <div class="quote-card"><blockquote>A nurse alone with tools is fragile. A nurse in a trusted learning network is resilient.</blockquote><p>NIN community principle.</p></div>
+        <div class="quote-card"><blockquote>Speed without stewardship is not innovation. It is risk acceleration.</blockquote><p>EDENA governance principle.</p></div>
+        <div class="quote-card"><blockquote>Do not confuse AI adoption with AI readiness.</blockquote><p>Enterprise advisory line.</p></div>
+        <div class="quote-card"><blockquote>Every artifact becomes alive. Every living artifact remains governed.</blockquote><p>Florence-X Knowledge OS doctrine.</p></div>
+        <div class="quote-card"><blockquote>Prepare for the AI boom. Prepare for the AI bust.</blockquote><p>Resilience campaign spine.</p></div>
+        <div class="quote-card"><blockquote>The future nurse is not an AI end user. The future nurse is a steward of clinical intelligence.</blockquote><p>Category creation line.</p></div>
+        <div class="quote-card"><blockquote>Proof of good beats proof of speed.</blockquote><p>Scale Good scorecard principle.</p></div>
+        <div class="quote-card"><blockquote>Local-first is not anti-cloud. It is anti-fragility.</blockquote><p>Sovereignty without dogma.</p></div>
+        <div class="quote-card"><blockquote>When markets panic, stewardship must become steadier.</blockquote><p>Tech-winter leadership posture.</p></div>
+      </div>
+    </section>
+
+    <section class="wrap" id="pledge">
+      <div class="pledge">
+        <div class="eyebrow">Collaborator Pledge</div>
+        <h2>What We Ask of Anyone Who Builds With Us</h2>
+        <p class="section-lead">This pledge is the human gate before the technical gate. It names the posture required to build in the NAIO ecosystem.</p>
+        <div class="pledge-lines">
+          <div>I will protect dignity before I optimize work.</div>
+          <div>I will preserve human judgment before I pursue automation.</div>
+          <div>I will treat nurses as stewards, not passive users.</div>
+          <div>I will separate claim from proof and speed from safety.</div>
+          <div>I will build skills, local memory, trust, and fallback paths.</div>
+          <div>I will honor the no-PHI boundary unless governance explicitly says otherwise.</div>
+          <div>I will remember: agents propose, humans judge, nurses steward.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="next">
+      <div class="callout">
+        <div>
+          <h2>Immediate Use</h2>
+          <p class="section-lead">Use this Magna Carta as the first orientation page for collaborators, course learners, advisors, funders, partners, and early NIN community leaders.</p>
+          <p class="small">Recommended next artifact: turn the Articles into a one-page downloadable collaborator checklist and a 10-slide orientation deck.</p>
+        </div>
+        <a class="btn gold" href="#top">Back to top</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>NAIO Magna Carta:</strong> a public-safe orientation charter for nurse-led AI stewardship. No PHI, patient data, secrets, credentials, or internal identifiers are included.</p>
+      <p>Where Nightingale Meets Neural Net · Weather. Serve. Thrive. · Agents propose. Humans judge. Nurses steward.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -20,6 +20,7 @@ Florence-X turns major NAIO artifacts into living, EDENA-governed, agent-readabl
 - Safe experimentation sandbox architecture
 - Healthcare agent supervision standards
 - Product gems from Proven-Better-New and founder mode
+- NAIO Magna Carta dashboard: mission, values, collaboration principles, product guidance, growth path, and maxims
 - Nurse AI Internet Treasure positioning
 - Five-site MVP
 - 30-day build plan
