@@ -21,6 +21,7 @@ Florence-X turns major NAIO artifacts into living, EDENA-governed, agent-readabl
 - Healthcare agent supervision standards
 - Product gems from Proven-Better-New and founder mode
 - NAIO Magna Carta dashboard: mission, values, collaboration principles, product guidance, growth path, and maxims
+- One-page NAIO collaborator checklist and 10-slide orientation deck, with Markdown and PDF downloads
 - Nurse AI Internet Treasure positioning
 - Five-site MVP
 - 30-day build plan

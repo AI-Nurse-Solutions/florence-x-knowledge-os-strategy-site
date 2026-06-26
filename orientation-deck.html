@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NAIO Magna Carta Orientation Deck · 10 Slides</title>
+  <meta name="description" content="A 10-slide NAIO Magna Carta orientation deck for collaborators, partners, learners, and community stewards." />
+  <style>
+    :root{
+      color-scheme:dark;
+      --bg:#050810;--panel:rgba(255,255,255,.075);--panel2:rgba(255,255,255,.12);--ink:#f6f9ff;--muted:#b8c7d9;--dim:#7f8fa6;
+      --navy:#10213f;--teal:#13c2a3;--gold:#f4b942;--green:#65d6a3;--orange:#ffae66;--red:#ff7b86;--blue:#89c9ff;--line:rgba(255,255,255,.16);--shadow:0 28px 100px rgba(0,0,0,.5)
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:radial-gradient(circle at 8% -4%,rgba(19,194,163,.26),transparent 30rem),radial-gradient(circle at 92% 0,rgba(244,185,66,.18),transparent 32rem),linear-gradient(180deg,#060b14,#08111f 48%,#050810);line-height:1.42;overflow-x:hidden}
+    a{color:var(--blue);text-decoration:none}.deck-shell{width:min(1240px,calc(100% - 36px));margin:0 auto;padding:20px 0 52px}
+    .topbar{position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;margin-bottom:18px;background:rgba(5,8,16,.72);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:950;color:var(--ink)}.mark{width:36px;height:36px;border-radius:13px;display:grid;place-items:center;color:#07101d;background:linear-gradient(135deg,var(--gold),var(--teal));font-weight:1000}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--line);border-radius:999px;padding:8px 12px;background:rgba(255,255,255,.075);font-weight:850;color:var(--ink);cursor:pointer}.btn.gold{background:linear-gradient(135deg,var(--gold),var(--teal));border:0;color:#06101e}
+    .slide{min-height:calc(100vh - 120px);aspect-ratio:16/9;width:100%;max-height:760px;margin:0 auto 28px;padding:clamp(30px,4vw,58px);border:1px solid var(--line);border-radius:34px;background:linear-gradient(135deg,rgba(255,255,255,.095),rgba(255,255,255,.045));box-shadow:var(--shadow);position:relative;overflow:hidden;display:grid;grid-template-rows:auto 1fr auto;gap:22px}
+    .slide::before{content:"";position:absolute;inset:-35% auto auto -18%;width:58%;height:58%;border-radius:50%;background:radial-gradient(circle,rgba(19,194,163,.18),transparent 70%);pointer-events:none}.slide::after{content:"";position:absolute;right:-10%;bottom:-24%;width:44%;height:60%;border-radius:50%;background:radial-gradient(circle,rgba(244,185,66,.14),transparent 72%);pointer-events:none}.slide>*{position:relative;z-index:1}
+    .kicker{text-transform:uppercase;letter-spacing:.17em;color:var(--gold);font-size:.78rem;font-weight:950}.slide-num{position:absolute;right:30px;top:24px;color:rgba(255,255,255,.38);font-weight:900;letter-spacing:.08em}.slide h1{font-size:clamp(3rem,7vw,7rem);line-height:1;letter-spacing:-.025em;margin:0;max-width:980px}.slide h2{font-size:clamp(2.3rem,5vw,5.2rem);line-height:1.03;letter-spacing:-.024em;margin:0;max-width:1040px}.slide h3{font-size:1.25rem;line-height:1.15;margin:0 0 8px;letter-spacing:-.01em}.lead{font-size:clamp(1.25rem,2.3vw,2rem);color:var(--muted);max-width:900px}.bigline{font-size:clamp(1.8rem,4vw,4rem);line-height:1.08;letter-spacing:-.024em;font-weight:900;max-width:1000px}.footer{display:flex;justify-content:space-between;gap:16px;color:var(--dim);font-size:.9rem}.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.card{border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.075);padding:18px}.card.gold{border-color:rgba(244,185,66,.32);background:rgba(244,185,66,.11)}.card.teal{border-color:rgba(19,194,163,.32);background:rgba(19,194,163,.1)}.small{color:var(--muted);font-size:.98rem}.mini{color:var(--muted);font-size:.88rem}.pill{display:inline-flex;border:1px solid var(--line);background:rgba(255,255,255,.07);border-radius:999px;padding:8px 11px;color:var(--muted);font-size:.9rem}.pills{display:flex;gap:8px;flex-wrap:wrap}.flow{display:grid;grid-template-columns:repeat(7,minmax(120px,1fr));gap:10px;align-items:stretch}.flow .step{border:1px solid var(--line);border-radius:18px;padding:12px;background:rgba(255,255,255,.07)}.step b{display:block;color:var(--gold);font-size:1.35rem}.green{color:var(--green)}.yellow{color:var(--gold)}.orange{color:var(--orange)}.red{color:var(--red)}.teal{color:var(--teal)}.blue{color:var(--blue)}
+    .two-col{display:grid;grid-template-columns:.95fr 1.05fr;gap:22px;align-items:center}.org-map{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.org{min-height:132px}.quote{font-weight:900;font-size:clamp(1.35rem,2.7vw,2.75rem);line-height:1.1;letter-spacing:-.018em}.list{display:grid;gap:10px}.list div{display:grid;grid-template-columns:26px 1fr;gap:10px;color:var(--muted)}.check{width:24px;height:24px;border-radius:9px;background:linear-gradient(135deg,var(--gold),var(--teal));color:#07101d;display:grid;place-items:center;font-weight:1000}.tier{border-left:4px solid var(--teal)}.tier.yellow{border-left-color:var(--gold)}.tier.orange{border-left-color:var(--orange)}.tier.red{border-left-color:var(--red)}
+    .nav-hint{position:fixed;right:18px;bottom:18px;z-index:40;display:flex;gap:8px}.nav-hint button{width:42px;height:42px;border-radius:14px;border:1px solid var(--line);background:rgba(5,8,16,.78);color:var(--ink);font-size:1.1rem;cursor:pointer;backdrop-filter:blur(12px)}
+    @media(max-width:900px){.slide{aspect-ratio:auto;min-height:auto}.grid-2,.grid-3,.grid-4,.two-col,.org-map,.flow{grid-template-columns:1fr}.topbar{position:static;align-items:flex-start;flex-direction:column}.nav-hint{display:none}}
+    @media print{
+      @page{size:16in 9in;margin:0}:root{color-scheme:light}body{background:#fff;color:#111827}.deck-shell{width:100%;padding:0}.topbar,.nav-hint{display:none}.slide{page-break-after:always;break-after:page;width:16in;height:9in;min-height:0;max-height:9in;aspect-ratio:auto;margin:0;border-radius:0;box-shadow:none;background:#fff;border:0;color:#111827;padding:.5in;overflow:hidden}.slide:last-child{page-break-after:auto;break-after:auto}.slide::before,.slide::after{display:none}.slide h1,.slide h2{color:#10213f}.slide h1{font-size:54pt}.slide h2{font-size:38pt}.lead{font-size:15pt}.bigline{font-size:28pt}.quote{font-size:22pt}.lead,.small,.mini,.list div,.footer{color:#374151}.card{background:#fff;border-color:#d7dce5}.pill{color:#374151;border-color:#d7dce5}.kicker{color:#8a5b07}.btn{display:none}.grid-3{gap:10px}.grid-2,.two-col{gap:12px}.card{padding:13px}.org{min-height:96px}.flow{gap:6px}.flow .step{padding:8px}.step b{font-size:1rem}
+    }
+  </style>
+</head>
+<body>
+  <main class="deck-shell">
+    <div class="topbar">
+      <a class="brand" href="magna-carta.html"><span class="mark">N</span><span>NAIO Magna Carta · 10-Slide Orientation Deck</span></a>
+      <div class="actions">
+        <a class="btn" href="magna-carta.html">Magna Carta</a>
+        <a class="btn" href="collaborator-checklist.html">Checklist</a>
+        <a class="btn" href="assets/naio-orientation-deck.md">Markdown</a>
+        <a class="btn" href="assets/naio-orientation-deck.pdf">PDF</a>
+        <a class="btn gold" href="javascript:window.print()">Print / save PDF</a>
+      </div>
+    </div>
+
+    <section class="slide" id="slide-1" aria-label="Slide 1: Cover">
+      <div class="slide-num">01 / 10</div>
+      <div><div class="kicker">NAIO / Florence-X / NIN / EDENA</div><h1>Weather. Serve. Thrive.</h1></div>
+      <div class="lead">A collaborator orientation for building nurse-led, sovereign, EDENA-governed intelligence systems with the stewardship heart of a nurse.</div>
+      <div class="footer"><span>Carry the lamp. Keep the ledger.</span><span>Agents propose. Humans judge. Nurses steward.</span></div>
+    </section>
+
+    <section class="slide" id="slide-2" aria-label="Slide 2: Why this exists">
+      <div class="slide-num">02 / 10</div>
+      <div><div class="kicker">Why this exists</div><h2>AI can be real and still be overbuilt.</h2></div>
+      <div class="grid-3">
+        <div class="card gold"><h3>Boom</h3><p class="small">AI capability expands. New tools, agents, and workflows appear faster than organizations can absorb them.</p></div>
+        <div class="card"><h3>Bust</h3><p class="small">Markets can punish overinvestment. Vendors can fail. Prices can rise. Tools can disappear.</p></div>
+        <div class="card teal"><h3>Stewardship</h3><p class="small">NAIO teaches skills, local resilience, community trust, and governance that survive both conditions.</p></div>
+      </div>
+      <div class="footer"><span>Optimistic about capability. Sober about markets.</span><span>Strict about governance.</span></div>
+    </section>
+
+    <section class="slide" id="slide-3" aria-label="Slide 3: Mission">
+      <div class="slide-num">03 / 10</div>
+      <div><div class="kicker">Personal mission</div><h2>A nurse-led civilization layer for healthcare AI.</h2></div>
+      <div class="two-col">
+        <p class="lead">We help clinicians, leaders, educators, builders, and communities use intelligence without surrendering judgment, dignity, safety, or soul.</p>
+        <div class="card gold"><div class="quote">Build the nurse, not the dependency.</div></div>
+      </div>
+      <div class="footer"><span>North Star: What would a bedside nurse at 3 AM think?</span><span>Safety first. Nurses first.</span></div>
+    </section>
+
+    <section class="slide" id="slide-4" aria-label="Slide 4: Ecosystem map">
+      <div class="slide-num">04 / 10</div>
+      <div><div class="kicker">Ecosystem map</div><h2>One doctrine. Many operating surfaces.</h2></div>
+      <div class="org-map">
+        <div class="card org"><h3>NAIO</h3><p class="mini">Authority, standards, governance legitimacy, certification.</p></div>
+        <div class="card org"><h3>NIN</h3><p class="mini">Community, Lamp Huddles, chapters, peer learning, trust.</p></div>
+        <div class="card org"><h3>Florence-X</h3><p class="mini">Knowledge OS, agent orchestration, dashboards, mission control.</p></div>
+        <div class="card org"><h3>EDENA</h3><p class="mini">Governance kernel, risk tiers, human gates, stop conditions.</p></div>
+        <div class="card org"><h3>SmartLearn</h3><p class="mini">Courses, skill stack, simulations, micro-credentials.</p></div>
+        <div class="card org"><h3>NAMOS</h3><p class="mini">Signals, evidence, vendor fragility, tech assessment.</p></div>
+      </div>
+      <div class="footer"><span>Authority + Community + Build + Governance + Learning + Intelligence</span><span>One safety spine.</span></div>
+    </section>
+
+    <section class="slide" id="slide-5" aria-label="Slide 5: Core doctrine">
+      <div class="slide-num">05 / 10</div>
+      <div><div class="kicker">Core doctrine</div><h2>The lamp and the ledger.</h2></div>
+      <div class="grid-3">
+        <div class="card gold"><h3>Carry the lamp</h3><p class="small">Presence, compassion, dignity, moral attention.</p></div>
+        <div class="card teal"><h3>Keep the ledger</h3><p class="small">Evidence, audit, proof, decision logs, learning.</p></div>
+        <div class="card"><h3>Steward the system</h3><p class="small">Boundaries, escalation, review, rollback, accountability.</p></div>
+      </div>
+      <div class="bigline">Agents propose. Humans judge. Nurses steward.</div>
+      <div class="footer"><span>Florence Nightingale spine.</span><span>Healthcare AI governance that reaches the bedside.</span></div>
+    </section>
+
+    <section class="slide" id="slide-6" aria-label="Slide 6: EDENA governance">
+      <div class="slide-num">06 / 10</div>
+      <div><div class="kicker">EDENA governance</div><h2>Autonomy rises only when stewardship rises.</h2></div>
+      <div class="grid-4">
+        <div class="card tier"><h3 class="green">Green</h3><p class="mini">Education, reflection, no-PHI personal productivity.</p></div>
+        <div class="card tier yellow"><h3 class="yellow">Yellow</h3><p class="mini">Decision support, team influence, strategy, research.</p></div>
+        <div class="card tier orange"><h3 class="orange">Orange</h3><p class="mini">Operational dashboards, agents, integrations, monitoring.</p></div>
+        <div class="card tier red"><h3 class="red">Red</h3><p class="mini">Clinical, legal, financial, PHI-heavy, or autonomous authority.</p></div>
+      </div>
+      <div class="lead">When ambiguous, tier up. Scarcity is not permission to lower standards.</div>
+      <div class="footer"><span>Every agent needs owner, purpose, boundary, gate, audit, stop condition.</span><span>Red is blocked until explicitly governed.</span></div>
+    </section>
+
+    <section class="slide" id="slide-7" aria-label="Slide 7: Sovereign setup">
+      <div class="slide-num">07 / 10</div>
+      <div><div class="kicker">Sovereign setup</div><h2>Cloud gives leverage. Local gives resilience.</h2></div>
+      <div class="two-col">
+        <div class="list">
+          <div><span class="check">✓</span><span>Own your folders, templates, notes, exports, and backups.</span></div>
+          <div><span class="check">✓</span><span>Know what belongs in cloud AI and what must stay local.</span></div>
+          <div><span class="check">✓</span><span>Keep a manual fallback for every important workflow.</span></div>
+          <div><span class="check">✓</span><span>Build skills that survive tool collapse and pricing shocks.</span></div>
+        </div>
+        <div class="card gold"><div class="quote">Local-first is not anti-cloud. It is anti-fragility.</div></div>
+      </div>
+      <div class="footer"><span>Nurse AI OS starts with no-PHI personal and professional workflows.</span><span>EDENA remains the conscience layer.</span></div>
+    </section>
+
+    <section class="slide" id="slide-8" aria-label="Slide 8: Growth path">
+      <div class="slide-num">08 / 10</div>
+      <div><div class="kicker">Growth path</div><h2>The Nurse AI Skill Stack.</h2></div>
+      <div class="flow">
+        <div class="step"><b>1</b>AI User</div>
+        <div class="step"><b>2</b>Operator</div>
+        <div class="step"><b>3</b>Agent Supervisor</div>
+        <div class="step"><b>4</b>Signal Curator</div>
+        <div class="step"><b>5</b>Builder-Distributor</div>
+        <div class="step"><b>6</b>Lamp Huddle Steward</div>
+        <div class="step"><b>7</b>Florence-X Orchestrator</div>
+      </div>
+      <div class="lead">We do not teach tool dependency. We teach durable operating capacity.</div>
+      <div class="footer"><span>Skills survive bubbles. Tool habits do not.</span><span>Learn → Use → Govern → Belong.</span></div>
+    </section>
+
+    <section class="slide" id="slide-9" aria-label="Slide 9: Collaboration standards">
+      <div class="slide-num">09 / 10</div>
+      <div><div class="kicker">Collaboration standards</div><h2>How we build, refuse, and prove.</h2></div>
+      <div class="grid-3">
+        <div class="card teal"><h3>We build</h3><p class="small">Skills, local memory, trusted communities, governed agents, knowledge sites, readiness dashboards.</p></div>
+        <div class="card"><h3>We refuse</h3><p class="small">PHI shortcuts, autonomous care claims, hype without proof, black-box accountability, extraction from nurses.</p></div>
+        <div class="card gold"><h3>We prove</h3><p class="small">Burden relief, judgment preservation, safety, dignity, equity, trust, sustainability.</p></div>
+      </div>
+      <div class="lead">Proof of good beats proof of speed.</div>
+      <div class="footer"><span>Trust before scale.</span><span>Claim discipline: known, assumed, unknown, recommended, decided.</span></div>
+    </section>
+
+    <section class="slide" id="slide-10" aria-label="Slide 10: Pledge and next action">
+      <div class="slide-num">10 / 10</div>
+      <div><div class="kicker">Pledge and next action</div><h2>Before technical work begins, the posture must be right.</h2></div>
+      <div class="two-col">
+        <div class="card gold"><div class="quote">If intelligence cannot protect the vulnerable, it is not ready to coordinate care.</div></div>
+        <div class="list">
+          <div><span class="check">1</span><span>Read the Magna Carta.</span></div>
+          <div><span class="check">2</span><span>Complete the collaborator checklist.</span></div>
+          <div><span class="check">3</span><span>Name the EDENA tier, owner, data boundary, stop condition, and proof of good.</span></div>
+          <div><span class="check">4</span><span>Then build only what strengthens nurses and protects dignity.</span></div>
+        </div>
+      </div>
+      <div class="footer"><span>Weather. Serve. Thrive.</span><span>Agents propose. Humans judge. Nurses steward.</span></div>
+    </section>
+  </main>
+
+  <div class="nav-hint" aria-label="Slide navigation controls">
+    <button type="button" onclick="moveSlide(-1)" aria-label="Previous slide">↑</button>
+    <button type="button" onclick="moveSlide(1)" aria-label="Next slide">↓</button>
+  </div>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    function currentIndex(){
+      const y = window.scrollY + window.innerHeight * .35;
+      let idx = 0;
+      slides.forEach((s,i)=>{ if(s.offsetTop <= y) idx = i; });
+      return idx;
+    }
+    function moveSlide(delta){
+      const idx = Math.max(0, Math.min(slides.length - 1, currentIndex() + delta));
+      slides[idx].scrollIntoView({behavior:'smooth', block:'start'});
+    }
+    window.addEventListener('keydown', e => {
+      if(['ArrowDown','PageDown',' '].includes(e.key)){ e.preventDefault(); moveSlide(1); }
+      if(['ArrowUp','PageUp'].includes(e.key)){ e.preventDefault(); moveSlide(-1); }
+      if(e.key === 'Home'){ e.preventDefault(); slides[0].scrollIntoView({behavior:'smooth'}); }
+      if(e.key === 'End'){ e.preventDefault(); slides[slides.length-1].scrollIntoView({behavior:'smooth'}); }
+    });
+  </script>
+</body>
+</html>

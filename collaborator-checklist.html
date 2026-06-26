@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NAIO Collaborator Checklist · One Page</title>
+  <meta name="description" content="A one-page NAIO collaborator readiness checklist for nurse-led, EDENA-governed AI stewardship." />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg:#06101e;
+      --panel:rgba(255,255,255,.075);
+      --panel2:rgba(255,255,255,.115);
+      --ink:#f6f9ff;
+      --muted:#b9c6d8;
+      --dim:#8090a7;
+      --navy:#10213f;
+      --teal:#13c2a3;
+      --gold:#f4b942;
+      --red:#ff7b86;
+      --orange:#ffae66;
+      --green:#65d6a3;
+      --line:rgba(255,255,255,.16);
+      --shadow:0 22px 72px rgba(0,0,0,.42);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 0 0,rgba(19,194,163,.22),transparent 28rem),
+        radial-gradient(circle at 100% 0,rgba(244,185,66,.17),transparent 28rem),
+        linear-gradient(180deg,#060b14,#08111f 55%,#050810);
+      line-height:1.38;
+    }
+    a{color:#89c9ff;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .page{width:min(1120px,calc(100% - 36px));margin:0 auto;padding:28px 0 44px}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px;color:var(--muted);font-size:.9rem}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--ink)}
+    .mark{width:34px;height:34px;border-radius:12px;display:grid;place-items:center;color:#08111f;background:linear-gradient(135deg,var(--gold),var(--teal));font-weight:1000}
+    .actions{display:flex;gap:9px;flex-wrap:wrap}
+    .btn{border:1px solid var(--line);border-radius:999px;padding:8px 11px;background:rgba(255,255,255,.07);font-weight:800;color:var(--ink)}
+    .btn.gold{background:linear-gradient(135deg,var(--gold),var(--teal));border:0;color:#06101e}
+    .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin-bottom:16px}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow)}
+    .hero-card{padding:24px}
+    .eyebrow{text-transform:uppercase;letter-spacing:.16em;color:var(--gold);font-size:.72rem;font-weight:950;margin-bottom:9px}
+    h1{font-size:clamp(2.2rem,5vw,4.9rem);line-height:.98;letter-spacing:-.045em;margin:0 0 11px}
+    h2{font-size:1rem;margin:0 0 8px;color:#fff;letter-spacing:-.015em}
+    p{margin:0 0 8px}.muted{color:var(--muted)}.small{font-size:.86rem;color:var(--muted)}
+    .quote{font-size:clamp(1.15rem,2.2vw,1.85rem);font-weight:880;line-height:1.12;letter-spacing:-.035em}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .wide{grid-column:span 2}.full{grid-column:1/-1}
+    .checklist{display:grid;gap:7px;margin-top:9px}
+    label,.check{display:grid;grid-template-columns:18px 1fr;gap:8px;align-items:start;color:var(--muted);font-size:.9rem}
+    input[type="checkbox"]{appearance:none;width:16px;height:16px;margin-top:2px;border:1.5px solid rgba(255,255,255,.36);border-radius:5px;background:rgba(255,255,255,.06)}
+    input[type="checkbox"]:checked{background:linear-gradient(135deg,var(--gold),var(--teal));border-color:transparent}
+    .traffic{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:9px}
+    .tier{border:1px solid var(--line);border-radius:15px;padding:9px;background:rgba(255,255,255,.055);font-size:.78rem;color:var(--muted)}
+    .tier b{display:block;color:#fff;margin-bottom:2px}.green{color:var(--green)}.yellow{color:var(--gold)}.orange{color:var(--orange)}.red{color:var(--red)}
+    .stop{border-color:rgba(255,123,134,.32);background:rgba(255,123,134,.09)}
+    .go{border-color:rgba(101,214,163,.32);background:rgba(101,214,163,.09)}
+    .pledge{background:linear-gradient(135deg,rgba(244,185,66,.16),rgba(19,194,163,.12));border-color:rgba(244,185,66,.3)}
+    .footer{margin-top:14px;color:var(--dim);font-size:.82rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    @media(max-width:900px){.hero,.grid{grid-template-columns:1fr}.wide{grid-column:auto}.traffic{grid-template-columns:1fr 1fr}.topbar{align-items:flex-start;flex-direction:column}}
+    @media print{
+      @page{size:letter landscape;margin:.22in}
+      :root{color-scheme:light}
+      body{background:#fff;color:#111827;font-size:8px;line-height:1.16;overflow:hidden}
+      .page{width:100%;padding:0}.topbar{margin-bottom:4px}.actions{display:none}.mark{width:22px;height:22px;border-radius:7px}.brand{gap:6px}
+      .card{box-shadow:none;background:#fff;border:1px solid #d7dce5;border-radius:8px;padding:6px}.hero-card{padding:8px}
+      h1{font-size:24px;line-height:1;margin-bottom:3px;color:#10213f}.quote{font-size:12px;color:#10213f}.eyebrow{font-size:6px;color:#7a5208;margin-bottom:4px}
+      h2{font-size:8.7px;color:#10213f;margin-bottom:3px}.muted,.small,label,.check{color:#374151;font-size:7px}.grid{gap:4px}.hero{gap:5px;margin-bottom:4px}
+      .checklist{gap:2px;margin-top:3px}input[type="checkbox"]{width:8px;height:8px;border-radius:2px;margin-top:1px}label,.check{grid-template-columns:10px 1fr;gap:4px}.traffic{gap:3px}.tier{padding:3px;border-radius:5px;font-size:6.2px;color:#374151}.footer{font-size:6.2px;margin-top:3px;color:#4b5563}
+      a{color:#0f766e;text-decoration:none}.wide{grid-column:span 2}.full{grid-column:1/-1}
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="topbar">
+      <a class="brand" href="magna-carta.html"><span class="mark">N</span><span>NAIO Magna Carta · Collaborator Checklist</span></a>
+      <div class="actions">
+        <a class="btn" href="magna-carta.html">Magna Carta</a>
+        <a class="btn" href="orientation-deck.html">Orientation Deck</a>
+        <a class="btn" href="assets/naio-collaborator-checklist.md">Markdown</a>
+        <a class="btn" href="assets/naio-collaborator-checklist.pdf">PDF</a>
+        <a class="btn gold" href="javascript:window.print()">Print / save PDF</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="card hero-card">
+        <div class="eyebrow">One-page readiness screen</div>
+        <h1>Before you build with NAIO.</h1>
+        <p class="muted">Use this checklist before joining, funding, piloting, teaching, publishing, or collaborating inside the NAIO / NIN / Florence-X / EDENA ecosystem.</p>
+      </div>
+      <div class="card hero-card pledge">
+        <div class="quote">Build the nurse, not the dependency.</div>
+        <p class="small">Cloud AI gives leverage. Local AI gives resilience. EDENA gives conscience. NIN gives trust.</p>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="NAIO collaborator readiness checklist">
+      <div class="card">
+        <h2>1. Mission fit</h2>
+        <div class="checklist">
+          <label><input type="checkbox"> <span>This work strengthens dignity, safety, judgment, and nurse empowerment.</span></label>
+          <label><input type="checkbox"> <span>It serves real workflow burden, learning, community, or governance need.</span></label>
+          <label><input type="checkbox"> <span>It can be explained to a tired bedside nurse without hype or jargon.</span></label>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>2. Safety boundary</h2>
+        <div class="checklist">
+          <label><input type="checkbox"> <span>No PHI, credentials, secrets, or private patient context in foundational work.</span></label>
+          <label><input type="checkbox"> <span>No autonomous diagnosis, orders, treatment, patient communication, or compliance authority.</span></label>
+          <label><input type="checkbox"> <span>Clinical, legal, financial, and regulatory claims are reviewed by accountable humans.</span></label>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>3. EDENA gate</h2>
+        <div class="traffic">
+          <div class="tier"><b class="green">Green</b>Learning, reflection, no-PHI productivity.</div>
+          <div class="tier"><b class="yellow">Yellow</b>Decision support or team influence.</div>
+          <div class="tier"><b class="orange">Orange</b>Operational workflows, dashboards, agents.</div>
+          <div class="tier"><b class="red">Red</b>Clinical, legal, finance, PHI, autonomy.</div>
+        </div>
+      </div>
+
+      <div class="card wide">
+        <h2>4. Stewardship questions</h2>
+        <div class="grid" style="grid-template-columns:repeat(2,1fr);gap:8px">
+          <label><input type="checkbox"> <span>What good must scale?</span></label>
+          <label><input type="checkbox"> <span>What must remain human-led?</span></label>
+          <label><input type="checkbox"> <span>Who is the accountable owner?</span></label>
+          <label><input type="checkbox"> <span>What data is allowed or forbidden?</span></label>
+          <label><input type="checkbox"> <span>What could harm dignity, equity, or trust?</span></label>
+          <label><input type="checkbox"> <span>What is the stop condition?</span></label>
+          <label><input type="checkbox"> <span>What is the manual fallback?</span></label>
+          <label><input type="checkbox"> <span>How will proof of good be measured?</span></label>
+        </div>
+      </div>
+
+      <div class="card stop">
+        <h2>5. Stop signs</h2>
+        <div class="checklist">
+          <div class="check"><input type="checkbox"> <span>Cannot name owner, tier, data boundary, or rollback path.</span></div>
+          <div class="check"><input type="checkbox"> <span>Claims sound validated but proof is absent.</span></div>
+          <div class="check"><input type="checkbox"> <span>Speed increases while accountability becomes less visible.</span></div>
+          <div class="check"><input type="checkbox"> <span>Nurses are treated as users instead of stewards.</span></div>
+        </div>
+      </div>
+
+      <div class="card go">
+        <h2>6. Ready to collaborate when</h2>
+        <div class="checklist">
+          <label><input type="checkbox"> <span>The work passes mission fit, safety boundary, and EDENA tiering.</span></label>
+          <label><input type="checkbox"> <span>It builds transferable skill, local memory, trust, and fallback capacity.</span></label>
+          <label><input type="checkbox"> <span>It preserves the doctrine: Agents propose. Humans judge. Nurses steward.</span></label>
+        </div>
+      </div>
+
+      <div class="card pledge">
+        <h2>7. Collaborator pledge</h2>
+        <p class="small">I will protect dignity before I optimize work. I will preserve human judgment before I pursue automation. I will separate claim from proof, speed from safety, and adoption from readiness.</p>
+      </div>
+
+      <div class="card full">
+        <h2>8. Use this as the pre-meeting screen</h2>
+        <p class="small"><strong>Meeting rule:</strong> if a proposed project cannot pass this one-page screen, it does not move to build, pitch, publish, pilot, or partner review. Tier up when ambiguous. Slow down when safety, dignity, PHI, clinical judgment, finance, legal, compliance, or public trust are touched.</p>
+      </div>
+    </section>
+
+    <div class="footer">
+      <span>NAIO / Florence-X / EDENA · One-page collaborator checklist</span>
+      <span>Weather. Serve. Thrive. · Carry the lamp. Keep the ledger.</span>
+    </div>
+  </main>
+</body>
+</html>
